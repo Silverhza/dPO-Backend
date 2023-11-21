@@ -1,0 +1,779 @@
+{
+	"info": {
+		"_postman_id": "2a243d5f-4dff-4790-ba14-eff868a26e71",
+		"name": "dpo_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29286185"
+	},
+	"item": [
+		{
+			"name": "Plan",
+			"item": [
+				{
+					"name": "Create plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"2 months\",\n    \"price\": 18.99,\n    \"interval\": \"month\",\n    \"interval_count\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/plan/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"plan",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/plan/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"plan",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update plan",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"planId\": \"64bebe2426ba0a95e43a8d79\",\n    \"name\": \"2 months\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/plan/update-plan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"plan",
+								"update-plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete plan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/plan/64bebfaef3d36e9e7e6c7b79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"plan",
+								"64bebfaef3d36e9e7e6c7b79"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"Lister\",\n    \"firstName\": \"Usama\",\n    \"lastName\": \"Bashir\",\n    \"email\": \"meetmrusama@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"meetmrusama@gmail.com\",\n    \"otp\": \"895953\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"verify-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"meetmrusama@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/logout/64c7ec5e3daa1b10e4c44e38",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"logout",
+								"64c7ec5e3daa1b10e4c44e38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardNo\": \"4242424242424242\",\n    \"expMonth\": 11,\n    \"expYear\": 2028,\n    \"cvc\": 123,\n    \"name\": \"Usama Bashir\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/add-card",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"add-card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user cards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/user-cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"user-cards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company Profile",
+			"item": [
+				{
+					"name": "Add company profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "companyName",
+									"value": "Company",
+									"type": "text"
+								},
+								{
+									"key": "DBAName",
+									"value": "DBA",
+									"type": "text"
+								},
+								{
+									"key": "contactFirstName",
+									"value": "First Name",
+									"type": "text"
+								},
+								{
+									"key": "contactLastName",
+									"value": "Last Name",
+									"type": "text"
+								},
+								{
+									"key": "contactEmail",
+									"value": "contact@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNo",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "businessType",
+									"value": "Parking",
+									"type": "text"
+								},
+								{
+									"key": "FEIN",
+									"value": "FEIN",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Street",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "City",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "State",
+									"type": "text"
+								},
+								{
+									"key": "zipCode",
+									"value": "zipCode",
+									"type": "text"
+								},
+								{
+									"key": "USDOT",
+									"value": "USDOT",
+									"type": "text"
+								},
+								{
+									"key": "employees",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "drivers",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "company_profile",
+									"type": "file",
+									"src": "/home/usama/Pictures/Screenshots/Screenshot from 2023-07-20 10-41-10.png"
+								},
+								{
+									"key": "policy_doc",
+									"type": "file",
+									"src": "/home/usama/Pictures/Screenshots/Screenshot from 2023-07-26 21-24-21.png"
+								},
+								{
+									"key": "providerName",
+									"value": "providerName",
+									"type": "text"
+								},
+								{
+									"key": "providerPhone",
+									"value": "providerPhone",
+									"type": "text"
+								},
+								{
+									"key": "policyNumber",
+									"value": "policyNumber",
+									"type": "text"
+								},
+								{
+									"key": "policyStartDate",
+									"value": "01-08-2023",
+									"type": "text"
+								},
+								{
+									"key": "policyEndDate",
+									"value": "01-08-2023",
+									"type": "text"
+								},
+								{
+									"key": "policyStreetAddress",
+									"value": "policyStreetAddress",
+									"type": "text"
+								},
+								{
+									"key": "policyCity",
+									"value": "policyCity",
+									"type": "text"
+								},
+								{
+									"key": "policyState",
+									"value": "policyState",
+									"type": "text"
+								},
+								{
+									"key": "policyZipCode",
+									"value": "policyZipCode",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/company-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"company-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment",
+			"item": [
+				{
+					"name": "Add equipment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"equipmentType\": \"equipmentType\",\n    \"equipmentIdentity\": \"equipmentIdentity\",\n    \"equipmentLength\": \"equipmentLength\",\n    \"equipmentUnitNo\": \"equipmentUnitNo\",\n    \"equipmentYear\": \"equipmentYear\",\n    \"equipmentMake\": \"equipmentMake\",\n    \"equipmentModel\": \"equipmentModel\",\n    \"equipmentColor\": \"equipmentColor\",\n    \"plateNo\": \"plateNo\",\n    \"plateState\": \"plateState\",\n    \"chassis\": \"chassis\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/equipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"equipment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PersonalInfo",
+			"item": [
+				{
+					"name": "Add PersonalInfo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gender",
+									"value": "Male",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Usama",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Bashir",
+									"type": "text"
+								},
+								{
+									"key": "companyTitle",
+									"value": "companyTitle",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "meetmrusama@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "English",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "street",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "city",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "state",
+									"type": "text"
+								},
+								{
+									"key": "zipCode",
+									"value": "zipCode",
+									"type": "text"
+								},
+								{
+									"key": "bio",
+									"value": "bio",
+									"type": "text"
+								},
+								{
+									"key": "emergencyFirstName",
+									"value": "emergencyFirstName",
+									"type": "text"
+								},
+								{
+									"key": "emergencyLastName",
+									"value": "emergencyLastName",
+									"type": "text"
+								},
+								{
+									"key": "emergencyPhone",
+									"value": "emergencyPhone",
+									"type": "text"
+								},
+								{
+									"key": "emergencyEmail",
+									"value": "asd@asd.asd",
+									"type": "text"
+								},
+								{
+									"key": "emergencyRelationship",
+									"value": "emergencyRelationship",
+									"type": "text"
+								},
+								{
+									"key": "emergencyLanguage",
+									"value": "emergencyLanguage",
+									"type": "text"
+								},
+								{
+									"key": "emergencyStreet",
+									"value": "emergencyStreet",
+									"type": "text"
+								},
+								{
+									"key": "emergencyCity",
+									"value": "emergencyCity",
+									"type": "text"
+								},
+								{
+									"key": "emergencyState",
+									"value": "emergencyState",
+									"type": "text"
+								},
+								{
+									"key": "emergencyZipCode",
+									"value": "emergencyZipCode",
+									"type": "text"
+								},
+								{
+									"key": "profile_pic",
+									"type": "file",
+									"src": "/home/usama/Pictures/Screenshots/Screenshot from 2023-07-27 15-05-04.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/personal-info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"personal-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Space",
+			"item": [
+				{
+					"name": "Add Space",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "spaces_imgs",
+									"type": "file",
+									"src": [
+										"/home/usama/Pictures/Screenshots/Screenshot from 2023-08-18 18-29-00.png",
+										"/home/usama/Pictures/Screenshots/Screenshot from 2023-08-18 18-27-36.png"
+									]
+								},
+								{
+									"key": "name",
+									"value": "Sample space",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Canada Line - SkyTrain, Metro Vancouver, BC, Canada",
+									"type": "text"
+								},
+								{
+									"key": "dayRate",
+									"value": "17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/space/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"space",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get spaces",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/space/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"space",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Connection",
+			"item": [
+				{
+					"name": "List connections",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check for a 200 status code\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Verify that the response is an array\r",
+									"pm.test(\"Response is an array\", function () {\r",
+									"    // Parse the response body as JSON\r",
+									"    const responseBody = pm.response.json();\r",
+									"\r",
+									"    // Check if the parsed response is an array\r",
+									"    pm.expect(Array.isArray(responseBody)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/connection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"connection"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

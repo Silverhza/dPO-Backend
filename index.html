@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; script-src-attr 'unsafe-inline';">
+    <title>Chat Test</title>
+</head>
+<body>
+    <h2>Socket.io Chat Test</h2>
+    
+    <div>
+        <h3>Login</h3>
+        <label for="loginEmail">Email:</label>
+        <input type="text" id="loginEmail">
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword">
+        <button onclick="loginUser()">Login</button>
+        <div id="loginError" style="color: red;"></div>
+    </div>
+
+    <div>
+        <label for="recipientEmail">Recipient Email:</label>
+        <input type="text" id="recipientEmail">
+        <label for="message">Message:</label>
+        <input type="text" id="message">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div id="chat"></div>
+
+    <script src="/static/socket.io/client-dist/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000');
+
+        function loginUser() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            socket.emit('user-login', { email: email, password: password });
+        }
+
+
+        function sendMessage() {
+            const receiver = document.getElementById('recipientEmail').value;
+            const message = document.getElementById('message').value;
+            
+            socket.emit('send-message', {
+                receiverEmail: receiver,
+                message: message
+            });
+            
+            const chat = document.getElementById('chat');
+            chat.innerHTML += '<b>You:</b> ' + message + '<br>';
+        }
+
+        socket.on('receive-message', ({ sender, message }) => {
+            const chat = document.getElementById('chat');
+            chat.innerHTML += '<b>' + sender + ':</b> ' + message + '<br>';
+        });
+    </script>
+</body>
+</html>
